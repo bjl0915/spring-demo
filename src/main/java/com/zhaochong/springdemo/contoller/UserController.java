@@ -3,7 +3,6 @@ package com.zhaochong.springdemo.contoller;
 import com.zhaochong.springdemo.dto.EISResult;
 import com.zhaochong.springdemo.dto.StatusEnum;
 import com.zhaochong.springdemo.dto.TmpUserDTO;
-import com.zhaochong.springdemo.entity.TmpUser;
 import com.zhaochong.springdemo.entity.User;
 import com.zhaochong.springdemo.entity.UserTest;
 import com.zhaochong.springdemo.service.UserService;
@@ -34,7 +33,7 @@ public class UserController {
         if (user != null) {
             return EISResult.ok().put("data", user);
         }
-        return EISResult.error(StatusEnum.NO_USER, StatusEnum.NOTFOUND.toString());
+        return EISResult.error(StatusEnum.NO_USER.getCode(), StatusEnum.NOTFOUND.toString());
     }
 
     @GetMapping("/simples")
@@ -44,7 +43,7 @@ public class UserController {
         if (users != null) {
             return EISResult.ok().put("data", users);
         }
-        return EISResult.error(StatusEnum.NO_USER, StatusEnum.NOTFOUND.toString());
+        return EISResult.error(StatusEnum.NO_USER.getCode(), StatusEnum.NOTFOUND.toString());
     }
 
     @GetMapping("/api/test")
